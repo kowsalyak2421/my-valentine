@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Harish 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ff9ec4, #ffc0cb);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 320px;
+      margin: 120px auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #yesBtn {
+      background-color: hotpink;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: gray;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Harish 💖 Will You Be My Valentine?</h2>
+
+  <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+  <button id="noBtn" onmouseover="moveButton()">No 😢</button>
+
+  <div id="message"></div>
+</div>
+
+<!-- Your Song File -->
+<audio id="bgMusic" loop>
+  <source src="thangamey.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function sayYes() {
+  document.getElementById("message").innerHTML =
+    "I love you so much Harish ❤️🥰 Thank you for being my Valentine! You are my Thangamey 💖";
+
+  document.getElementById("bgMusic").play();
+  startHearts();
+}
+
+function moveButton() {
+  var button = document.getElementById("noBtn");
+
+  var x = Math.random() * 250;
+  var y = Math.random() * 200;
+
+  button.style.left = x + "px";
+  button.style.top = y + "px";
+
+  document.getElementById("message").innerHTML =
+    "Wrong decision 😜 This option is not available!";
+}
+
+function startHearts() {
+  setInterval(function() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 300);
+}
+
+</script>
+
+</body>
+  </html>
