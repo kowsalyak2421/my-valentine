@@ -116,8 +116,32 @@ function startHearts() {
     }, 5000);
   }, 300);
 }
-
 </script>
+<script>
+let noClickCount = 0;
 
+function sayYes() {
+  document.getElementById("message").innerHTML =
+    "I love you so much Harish ❤️🥰 Thank you for being my Valentine!";
+
+  document.getElementById("bgMusic").play();
+}
+
+function moveButton() {
+  var button = document.getElementById("noBtn");
+
+  var x = Math.random() * (window.innerWidth - 100);
+  var y = Math.random() * (window.innerHeight - 50);
+
+  button.style.position = "fixed";
+  button.style.left = x + "px";
+  button.style.top = y + "px";
+
+  noClickCount++;
+
+  document.getElementById("message").innerHTML =
+    "Wrong decision 😜 Try again!";
+}
+</script>
 </body>
   </html>
